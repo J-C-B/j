@@ -1,6 +1,10 @@
 alias extip="curl -s ifconfig.co"
 alias extip-info="curl -s ipinfo.io | jq"
+alias ipcity=`curl -s ipinfo.io | jq '.city' -r`
+alias ipregion=`curl -s ipinfo.io | jq '.region' -r`
+alias ipcountry=`curl -s ipinfo.io | jq '.country' -r`
 alias intip="ifconfig | grep 'inet ' | grep -v 127.0.0.1 | cut -d\  -f2"
+#alias intip='ip addr show | sed -En 's/127.0.0.1//;s/.*inet (addr:)?(([0-9]*\.){3}[0-9]*).*/\2/p''
 alias ports="sudo lsof -iTCP -sTCP:LISTEN -n -P"
 alias pubkey="cat ~/.ssh/id_rsa.pub"
 alias cloudflaredssh="cloudflared access ssh-config --hostname"
