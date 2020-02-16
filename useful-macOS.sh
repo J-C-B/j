@@ -5,6 +5,6 @@ osqueryi --json 'SELECT * FROM usb_devices WHERE removable' | jq
 #view tha listening ports
 sudo lsof -iTCP -sTCP:LISTEN -n -P
 #view local addresses
-hostname -i | awk '{print $3}'
+#broken on catalina ## hostname -i | awk '{print $3}'
 #view external address
 curl -s ipinfo.io | jq
