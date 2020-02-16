@@ -1,14 +1,14 @@
 ####################
 #joshhhighet basevm#
 ####################
-#todo : dnsconf-doh , nebula/argo gitconf/pull, motd/banner, checksum verify, userconfig
+#todo : dnsconf-doh , nebula/argo gitconf/pull, motd/banner, checksum verify, userconfig, tzdata gmt+12
 #################################################################################
 #oneliner
 #git clone https://github.com/joshhighet/j.git && cd j && chmod +x j.sh && ./j.sh
 #################################################################################
 curl -s -L joshhighet.com/ssh \
 | tee ~/.ssh/authorized_keys
-ssh-keygen -t rsa -b 4096
+ssh-keygen -t rsa -b 4096 -C "autodep@joshhighet.com"
 touch ~/.hushlogin
 sudo apt-get update -y
 sudo apt-get upgrade -y
