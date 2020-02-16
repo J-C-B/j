@@ -21,3 +21,4 @@ alias ipgrepv4="grep -o '[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}'
 alias ipgrepv6="grep -o '^\([0-9a-fA-F]\{0,4\}:\)\{1,7\}[0-9a-fA-F]\{0,4\}$'"
 alias tor="'/Applications/Tor Browser.app/Contents/MacOS/firefox'"
 alias shodanme='shodan host `curl -s ipinfo.io/ip`'
+alias google='{read -r arr; open "https://google.com/search?q=${arr}";} <<<'
