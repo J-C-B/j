@@ -4,7 +4,7 @@
 #todo : dnsconf-doh , nebula/argo gitconf/pull, motd/banner, checksum verify, userconfig
 #################################################################################
 #oneliner
-#git clone https://github.com/joshhighet/-.git && cd - && chmod +x -.sh && ./-.sh
+#git clone https://github.com/joshhighet/j.git && cd j && chmod +x j.sh && ./j.sh
 #################################################################################
 curl -s -L joshhighet.com/ssh \
 | tee ~/.ssh/authorized_keys
