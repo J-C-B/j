@@ -26,3 +26,5 @@ alias ipgrepv6="grep -o '^\([0-9a-fA-F]\{0,4\}:\)\{1,7\}[0-9a-fA-F]\{0,4\}$'"
 alias tor="'/Applications/Tor Browser.app/Contents/MacOS/firefox'"
 alias shodanme='shodan host `curl -s ipinfo.io/ip`'
 alias google='{read -r arr; open "https://google.com/search?q=${arr}";} <<<'
+alias startup='echo "git clone https://github.com/joshhighet/j.git && cd j && chmod +x j.sh && ./j.sh"'
+alias freewilly='docker rm $(docker ps -a -q) && docker stop $(docker ps -a -q)'
