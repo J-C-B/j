@@ -24,7 +24,6 @@ echo 'X5O!P%@AP[4\PZX54(P^)7CC)7}$EICAR-STANDARD-ANTIVIRUS-TEST-FILE !$H+H*' | /
 /sbin/runuser -l josh -c 'ssh-keygen -t rsa -b 4096 -C "autodep@joshhighet.com"'
 /usr/bin/curl  -s -C - https://pkg.cloudflare.com/pubkey.gpg | /usr/bin/sudo apt-key add -
 echo 'deb http://pkg.cloudflare.com/ xenial main' | /usr/bin/sudo tee /etc/apt/sources.list.d/cloudflare-main.list
-/usr/bin/sudo add-apt-repository ppa:wireguard/wireguard
 /usr/bin/sudo apt-get update -y
 /usr/bin/sudo apt-get upgrade -y
 /usr/bin/sudo apt install -y \
@@ -40,7 +39,6 @@ tcpdump \
 python3 \
 torsocks \
 fail2ban \
-wireguard \
 multitail \
 moreutils \
 python3-pip \
