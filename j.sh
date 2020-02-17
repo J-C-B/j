@@ -53,14 +53,14 @@ sed -i 's/PermitRootLogin yes/PermitRootLogin no/g' /etc/ssh/sshd_config
 #sudo hostnamectl set-hostname `date +%s | shasum -a 512 | base64 | head -c 8`
 runuser -l josh -c 'echo "curl -s ipinfo.io | jq" >> /home/josh/.bashrc'
 runuser -l josh -c 'touch /home/josh/.hushlogin'
-wget -P /tmp https://bin.equinox.io/c/VdrWdbjqyF/cloudflared-stable-linux-amd64.deb
+wget --quiet -P /tmp https://bin.equinox.io/c/VdrWdbjqyF/cloudflared-stable-linux-amd64.deb
 sudo dpkg -i /tmp/cloudflared-stable-linux-amd64.deb
 /usr/local/bin/cloudflared update
 timedatectl set-timezone Pacific/Auckland
 runuser -l josh -c 'touch /home/josh/.hushlogin'
-runuser -l josh -c 'git clone https://github.com/joshhighet/j'
-runuser -l josh -c 'git clone https://github.com/joshhighet/nebula'
-runuser -l josh -c 'git clone https://github.com/joshhighet/simplesftp'
+runuser -l josh -c 'git clone https://github.com/joshhighet/j --quiet'
+runuser -l josh -c 'git clone https://github.com/joshhighet/nebula --quiet'
+runuser -l josh -c 'git clone https://github.com/joshhighet/simplesftp --quiet'
 runuser -l josh -c 'touch /home/josh/.jsh'
 #####
 ufw allow ssh
