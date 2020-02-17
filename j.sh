@@ -24,6 +24,7 @@ echo 'X5O!P%@AP[4\PZX54(P^)7CC)7}$EICAR-STANDARD-ANTIVIRUS-TEST-FILE !$H+H*' | /
 /sbin/runuser -l josh -c 'ssh-keygen -t rsa -b 4096 -C "autodep@joshhighet.com"'
 /usr/bin/curl  -s -C - https://pkg.cloudflare.com/pubkey.gpg | /usr/bin/sudo apt-key add -
 echo 'deb http://pkg.cloudflare.com/ xenial main' | /usr/bin/sudo tee /etc/apt/sources.list.d/cloudflare-main.list
+/usr/bin/sudo add-apt-repository ppa:wireguard/wireguard
 /usr/bin/sudo apt-get update -y
 /usr/bin/sudo apt-get upgrade -y
 /usr/bin/sudo apt install -y \
@@ -39,6 +40,7 @@ tcpdump \
 python3 \
 torsocks \
 fail2ban \
+wireguard \
 multitail \
 moreutils \
 python3-pip \
@@ -61,6 +63,10 @@ sudo hostnamectl set-hostname `/bin/date +%s | /usr/bin/shasum -a 512 | /usr/bin
 /sbin/runuser -l josh -c 'git clone https://github.com/joshhighet/nebula'
 /sbin/runuser -l josh -c 'git clone https://github.com/joshhighet/simplesftp'
 #####
+/usr/sbin/ufw allow ssh
 /usr/bin/clear
+/bin/rm -rf /root/j
+/usr/bin/tree /home/josh
+/usr/sbin/ufw status verbose
 printf "`echo $HOSTNAME` restartin - reshell w/\nssh josh@`/usr/bin/curl -s ipinfo.io/ip`\n"
 /usr/bin/sudo reboot
