@@ -69,10 +69,9 @@ runuser -l josh -c 'git clone https://github.com/joshhighet/simplesftp --quiet'
 runuser -l josh -c 'touch /home/josh/.jsh'
 #####
 ufw allow ssh
-clear
-git clone https://github.com/joshhighet/j.git
+#clear
 #tree /home/josh
 ufw status verbose
-printf "`echo $HOSTNAME` restartin - reshell w/\nssh josh@` curl -s ipinfo.io/ip`\n"
+printf "`echo $HOSTNAME` restarting - reshell w/\nssh josh@` curl -s ipinfo.io/ip`\n"
 runuser -l josh -c 'echo "configured with https://github.com/joshhighet/j/blob/master/j.sh" | tee /home/josh/.jsh'
 sudo reboot
