@@ -11,7 +11,7 @@ if ! [ "$(id -u)" = 0 ]; then
   exit 0
 fi
 echo 'X5O!P%@AP[4\PZX54(P^)7CC)7}$EICAR-STANDARD-ANTIVIRUS-TEST-FILE !$H+H*' | tee /etc/motd
-adduser josh
+adduser josh --gecos ""
 usermod -aG sudo josh
 su - josh
 mkdir /home/josh/.ssh
