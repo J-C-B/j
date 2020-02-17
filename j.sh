@@ -58,6 +58,7 @@ sudo dpkg -i /tmp/cloudflared-stable-linux-amd64.deb
 /usr/local/bin/cloudflared update
 timedatectl set-timezone Pacific/Auckland
 runuser -l josh -c 'touch /home/josh/.hushlogin'
+runuser -l josh -c 'git clone https://github.com/joshhighet/j'
 runuser -l josh -c 'git clone https://github.com/joshhighet/nebula'
 runuser -l josh -c 'git clone https://github.com/joshhighet/simplesftp'
 #####
