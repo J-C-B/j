@@ -50,7 +50,7 @@ cat /tmp/j/alias.zshrc >> /home/josh/.bashrc
 chown -R josh:josh /home/josh
 source /home/josh/.bashrc
 sed -i 's/PermitRootLogin yes/PermitRootLogin no/g' /etc/ssh/sshd_config
-sudo hostnamectl set-hostname `date +%s | /shasum -a 512 | base64 | head -c 8`
+sudo hostnamectl set-hostname `date +%s | shasum -a 512 | base64 | head -c 8`
 runuser -l josh -c 'echo "curl -s ipinfo.io | jq" >> /home/josh/.bashrc'
 runuser -l josh -c 'touch /home/josh/.hushlogin'
 wget -P /tmp https://bin.equinox.io/c/VdrWdbjqyF/cloudflared-stable-linux-amd64.deb
@@ -66,7 +66,7 @@ runuser -l josh -c 'touch /home/josh/.jsh'
 ufw allow ssh
 clear
 git clone https://github.com/joshhighet/j.git
-tree /home/josh
+#tree /home/josh
 ufw status verbose
 printf "`echo $HOSTNAME` restartin - reshell w/\nssh josh@` curl -s ipinfo.io/ip`\n"
 runuser -l josh -c 'echo "configured with https://github.com/joshhighet/j/blob/master/j.sh" | tee /home/josh/.jsh'
