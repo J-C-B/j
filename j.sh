@@ -14,6 +14,15 @@ echo 'X5O!P%@AP[4\PZX54(P^)7CC)7}$EICAR-STANDARD-ANTIVIRUS-TEST-FILE !$H+H*' | t
 adduser josh
 usermod -aG sudo josh
 su - josh
+mkdir /home/josh/.ssh
+touch /home/josh/.ssh/authorized_keys
+######################################
+#########WAF-BYPASS-CONDITION#########
+#(http.user_agent contains "curl/"####
+#and http.request.method eq "GET"#####
+#and http.host eq "joshhighet.com"####
+#and http.request.uri.path eq "/ssh")#
+######################################
 curl -s -L joshhighet.com/ssh \
 | tee ~/.ssh/authorized_keys
 ssh-keygen -t rsa -b 4096 -C "autodep@joshhighet.com"
