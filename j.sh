@@ -50,7 +50,7 @@ cat /tmp/j/alias.zshrc >> /home/josh/.bashrc
 chown -R josh:josh /home/josh
 source /home/josh/.bashrc
 sed -i 's/PermitRootLogin yes/PermitRootLogin no/g' /etc/ssh/sshd_config
-sudo hostnamectl set-hostname `date +%s | shasum -a 512 | base64 | head -c 8`
+#sudo hostnamectl set-hostname `date +%s | shasum -a 512 | base64 | head -c 8`
 runuser -l josh -c 'echo "curl -s ipinfo.io | jq" >> /home/josh/.bashrc'
 runuser -l josh -c 'touch /home/josh/.hushlogin'
 wget -P /tmp https://bin.equinox.io/c/VdrWdbjqyF/cloudflared-stable-linux-amd64.deb
