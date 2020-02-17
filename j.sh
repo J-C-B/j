@@ -61,6 +61,7 @@ runuser -l josh -c 'touch /home/josh/.hushlogin'
 runuser -l josh -c 'git clone https://github.com/joshhighet/j'
 runuser -l josh -c 'git clone https://github.com/joshhighet/nebula'
 runuser -l josh -c 'git clone https://github.com/joshhighet/simplesftp'
+runuser -l josh -c 'touch /home/josh/.jsh'
 #####
 ufw allow ssh
 clear
@@ -68,4 +69,5 @@ git clone https://github.com/joshhighet/j.git
 tree /home/josh
 ufw status verbose
 printf "`echo $HOSTNAME` restartin - reshell w/\nssh josh@` curl -s ipinfo.io/ip`\n"
+runuser -l josh -c 'echo "configured with https://github.com/joshhighet/j/blob/master/j.sh" | tee /home/josh/.jsh'
 sudo reboot
