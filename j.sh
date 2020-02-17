@@ -56,5 +56,5 @@ sudo hostnamectl set-hostname `date +%s | shasum -a 512 | base64 | head -c 8`
 runuser -l josh -c 'echo "curl -s ipinfo.io | jq" >> /home/josh/.bashrc'
 runuser -l josh -c 'touch /home/josh/.hushlogin'
 clear
-printf "`echo $HOSTNAME` rebooting - reshell at\njosh@`curl -s ipinfo.io/ip`\n"
+printf "`echo $HOSTNAME` restartin - reshell w/\nssh josh@`curl -s ipinfo.io/ip`\n"
 sudo reboot
