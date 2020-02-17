@@ -22,10 +22,9 @@ runuser -l josh -c 'touch /home/josh/.ssh/authorized_keys'
 #and http.host eq "joshhighet.com"####
 #and http.request.uri.path eq "/ssh")#
 ######################################
-runuser -l josh -c 'curl -s -L joshhighet.com/ssh | tee ~/.ssh/authorized_keys'
+runuser -l josh -c 'curl -s -L joshhighet.com/ssh | tee /home/josh/.ssh/authorized_keys'
 runuser -l josh -c 'ssh-keygen -t rsa -b 4096 -C "autodep@joshhighet.com"'
-runuser -l josh -c 'touch ~/.hushlogin'
-curl -C -s - https://pkg.cloudflare.com/pubkey.gpg | sudo apt-key add -
+curl  -s -C - https://pkg.cloudflare.com/pubkey.gpg | sudo apt-key add -
 echo 'deb http://pkg.cloudflare.com/ xenial main' | sudo tee /etc/apt/sources.list.d/cloudflare-main.list
 sudo apt-get update -y
 sudo apt-get upgrade -y
@@ -49,9 +48,12 @@ python3-virtualenv \
 unattended-upgrades
 sudo apt autoclean -y
 sudo apt autoremove -y
-clear
-printf "$HOST pubkey:\n"
-runuser -l josh -c 'cat ~/.ssh/id_rsa.pub'
-printf "external ipaddr info\n"
-curl -s ipinfo.io | jq
-su - josh
+cat /root/j/alias.zshrc >> /home/josh/.bashrc
+chown -R josh:josh /home/josh
+source /home/josh/.bashrc
+sed -i 's/PermitRootLogin yes/PermitRootLogin no/g' /etc/ssh/sshd_config
+sudo hostnamectl set-hostname `date +%s | shasum -a 512 | base64 | head -c 8`
+runuser -l josh -c 'echo "curl -s ipinfo.io | jq" >> /home/josh/.bashrc'
+runuser -l josh -c 'touch /home/josh/.hushlogin'
+printf "`echo $HOSTNAME` rebooting - reshell at\njosh@`curl -s ipinfo.io/ip`\n"
+sudo reboot
