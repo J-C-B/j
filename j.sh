@@ -24,9 +24,9 @@ runuser -l josh -c 'curl -s -L joshhighet.com/ssh | tee /home/josh/.ssh/authoriz
 runuser -l josh -c 'ssh-keygen -t rsa -b 4096 -C "autodep@joshhighet.com"'
 curl  -s -C - https://pkg.cloudflare.com/pubkey.gpg | sudo apt-key add -
 echo 'deb http://pkg.cloudflare.com/ xenial main' | sudo tee /etc/apt/sources.list.d/cloudflare-main.list
-sudo apt-get update -y
-sudo apt-get upgrade -y
-sudo apt install -y \
+sudo apt-get -qq update -y
+sudo apt-get -qq upgrade -y
+sudo apt install -qq -y \
 jq \
 ufw \
 zsh \
@@ -44,8 +44,8 @@ moreutils \
 python3-pip \
 python3-virtualenv \
 unattended-upgrades
-sudo apt autoclean -y
-sudo apt autoremove -y
+sudo apt -qq autoclean -y
+sudo apt -qq autoremove -y
 cat /tmp/j/alias.zshrc >> /home/josh/.bashrc
 chown -R josh:josh /home/josh
 source /home/josh/.bashrc
